@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Theme Toggle -->
+
+    <div class="theme-toggle">
+
+        <button id="themeBtn">
+
+            🌙 Dark Mode
+
+        </button>
+
+    </div>
+
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+        <h1>AI Resume Analyzer</h1>
+
+        <p class="subtitle">
+
+            Upload your resume and receive a complete analysis,
+            resume score, job recommendation, and improvement suggestions.
+
+        </p>
+
+        <div class="upload-card">
+
+            <form action="/analyze"
+                method="POST"
+                enctype="multipart/form-data">
+
+                <label for="resume">
+
+                    Upload Resume (PDF)
+
+                </label>
+
+                <input type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf"
+                    required>
+
+                <button type="submit">
+
+                    Analyze Resume
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="features">
+
+            <div class="feature-card">
+
+                <h3>📊 Resume Score</h3>
+
+                <p>
+
+                    Calculates your overall resume quality.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>💼 Job Recommendation</h3>
+
+                <p>
+
+                    Finds the best role for your skills.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>🎯 Skill Analysis</h3>
+
+                <p>
+
+                    Detects your technical skills automatically.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>📄 Resume Sections</h3>
+
+                <p>
+
+                    Reviews Education, Projects,
+                    Skills, Certifications and more.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>💡 Suggestions</h3>
+
+                <p>
+
+                    Gives personalized improvement tips.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>⭐ Career Guidance</h3>
+
+                <p>
+
+                    Suggests the most suitable career path.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

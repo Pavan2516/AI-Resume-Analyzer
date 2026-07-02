@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Theme Toggle -->
+    <button id="themeBtn" class="theme-btn">🌙 Dark Mode</button>
+
+    <div class="container">
+
+        <h1>📄 Resume Analysis Report</h1>
+
+        <p class="subtitle">
+            Resume: <strong>{{ filename }}</strong>
+        </p>
+
+        <!-- Overall Score -->
+        <div class="card">
+
+            <h2>📊 Overall Resume Score</h2>
+
+            <div class="score-circle">
+                {{ overall_score }}%
+            </div>
+
+            <h3>{{ confidence }}</h3>
+
+        </div>
+
+        <!-- Recommended Role -->
+        <div class="card">
+
+            <h2>💼 Recommended Job Role</h2>
+
+            <h3 class="role">{{ recommended_role }}</h3>
+
+        </div>
+
+        <!-- Job Role Match -->
+        <div class="card">
+
+            <h2>📈 Job Role Match</h2>
+
+            {% for role, score in role_scores.items() %}
+
+            <p><strong>{{ role }}</strong></p>
+
+            <div class="progress">
+
+                <div class="progress-bar"
+                    style="width: {{ score }}%;">
+
+                    {{ score }}%
+
+                </div>
+
+            </div>
+
+            <br>
+
+            {% endfor %}
+
+        </div>
+
+        <!-- Resume Sections -->
+
+        <div class="card">
+
+            <h2>📄 Resume Section Scores</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Section</th>
+
+                    <th>Score</th>
+
+                </tr>
+
+                {% for section, score in section_scores.items() %}
+
+                <tr>
+
+                    <td>{{ section }}</td>
+
+                    <td>{{ score }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+        <!-- Skills Found -->
+
+        <div class="card">
+
+            <h2>✅ Skills Found</h2>
+
+            <ul>
+
+                {% for skill in found_skills %}
+
+                <li>{{ skill }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <!-- Missing Skills -->
+
+        <div class="card">
+
+            <h2>❌ Missing Skills</h2>
+
+            <ul>
+
+                {% for skill in missing_skills %}
+
+                <li>{{ skill }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <!-- Strengths -->
+
+        <div class="card">
+
+            <h2>🏆 Strengths</h2>
+
+            <ul>
+
+                {% for item in strengths %}
+
+                <li>{{ item }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <!-- Areas to Improve -->
+
+        <div class="card">
+
+            <h2>⚠ Areas to Improve</h2>
+
+            <ul>
+
+                {% for item in improvements %}
+
+                <li>{{ item }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <!-- Suggestions -->
+
+        <div class="card">
+
+            <h2>💡 Suggestions</h2>
+
+            <ul>
+
+                {% for item in suggestions %}
+
+                <li>{{ item }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <!-- Resume Checklist -->
+
+        <div class="card">
+
+            <h2>📋 Resume Checklist</h2>
+
+            <ul>
+
+                {% for item in summary %}
+
+                <li>{{ item }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <!-- Back Button -->
+
+        <div class="center">
+
+            <a href="/" class="btn">
+
+                Analyze Another Resume
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
