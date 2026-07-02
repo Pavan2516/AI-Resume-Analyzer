@@ -1,4 +1,4 @@
-# 📄 Smart Resume Analyzer
+# 📄 AI Resume Analyzer
 
 A Flask-based web application that analyzes PDF resumes by extracting technical skills, calculating a resume score, recommending suitable job roles, identifying missing skills, and providing personalized resume improvement suggestions.
 
